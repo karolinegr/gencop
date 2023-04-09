@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
+import { useState } from "react";
+import { Button, Form } from "react-bootstrap";
+import HeaderComponent from "./components/page-components/header-component";
+import StickyFooter from "./components/page-components/footer-sticky-component"
+import FirstPdfComponent from "./files-components/first-pdf-component";
+import { Outlet } from "react-router";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HeaderComponent />
+      <div className="outlet-container">
+        <Outlet />
+      </div>
+      <StickyFooter/>
+    </>
   );
-}
+};
 
 export default App;
