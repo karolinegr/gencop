@@ -199,8 +199,7 @@ const ProofOfResidenceForm = () => {
                         <Form.Group>
                             <Form.Label>Local</Form.Label>
                             <Form.Control value={cityDocument} disabled={sameCity}
-                                onChange={(item) => setCityDocument(item.target.value
-                                )} />
+                                onChange={(item) => setCityDocument(item.target.value)} />
                             <Form.Check type="checkbox" label="Cidade diferente da moradia" onChange={onChangeSameCityInformation} />
                         </Form.Group>
                     </Col>
