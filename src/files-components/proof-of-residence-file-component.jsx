@@ -105,12 +105,10 @@ const ProofOfResidenceFileComponent = ({ data }) => (
                 <Text>            </Text>
 
                 <Text style={styles.assinatura}>
-                    <span>{data.cityDocument}</span>, {moment(data.dayDocument).format('DD/MM/yyyy')}.
-                </Text>
-                <Text style={styles.assinatura}>
-                    Local                              Data
+                    {data.cityDocument}, {moment(data.dayDocument).format('DD/MM/yyyy')}.
                 </Text>
 
+                <Text>            </Text>
                 <Text>            </Text>
 
                 <Text style={styles.assinatura}>

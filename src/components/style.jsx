@@ -77,3 +77,27 @@ export const GeneratePdfButton = styled(Link)`
     border: none;
   }
 `;
+
+export const IconButton = styled(Link)`
+  background-color: ${colors.darkBlue};
+  color: ${colors.beige};
+  border: none;
+  border-radius: 8px;
+  padding: 0.3rem 1.5rem;
+  margin: 1.5rem 0;
+  width: fit-content;
+  text-decoration:none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: ${colors.beige};
+    color: ${colors.maroon};
+    outline: none;
+    border: none;
+  }
+`;

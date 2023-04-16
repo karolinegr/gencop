@@ -7,9 +7,10 @@ import DatePicker, { registerLocale } from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import ptBR from 'date-fns/locale/pt-BR';
-import { GeneratePdfButton, MenuButton } from '../../style';
+import { GeneratePdfButton, IconButton } from '../../style';
 import WaitingPdfComponent from '../../page-components/waiting-pdf-component';
 import ProofOfResidenceFileComponent from '../../../files-components/proof-of-residence-file-component';
+import { FiXCircle } from "react-icons/fi";
 
 const ProofOfResidenceForm = () => {
     registerLocale('pt-BR', ptBR);
@@ -76,6 +77,25 @@ const ProofOfResidenceForm = () => {
         }
     }
 
+    const clearDocument = () => {
+        setShow(false);
+        setName("");
+        setCpf("");
+        setIdentity("");
+        setIdentityEntity("");
+        setStateIdentity("");
+        setZipcode("");
+        setStreetAddress("");
+        setHouseNumber("");
+        setNeighborhood("");
+        setComplement("");
+        setCity("");
+        setState("");
+        setCityDocument("");
+        setDayDocument(new Date());
+        setSameCity(true);
+    }
+
     return (
         <Col sm={10} md={10} lg={8}>
             <Form>
@@ -84,6 +104,7 @@ const ProofOfResidenceForm = () => {
                         <Form.Label>Nome</Form.Label>
                         <Form.Control
                             type="text"
+                            value={name}
                             onChange={(item) => setName(item.target.value)}
                         />
                     </Form.Group>
@@ -95,6 +116,7 @@ const ProofOfResidenceForm = () => {
                             <Form.Control
                                 type="text"
                                 maxLength={11}
+                                value={cpf}
                                 onChange={(item) => setCpf(item.target.value)}
                             />
                         </Form.Group>
@@ -104,6 +126,7 @@ const ProofOfResidenceForm = () => {
                             <Form.Label>RG</Form.Label>
                             <Form.Control
                                 type="text"
+                                value={identity}
                                 onChange={(item) => setIdentity(item.target.value)}
                             />
                         </Form.Group>
@@ -113,6 +136,7 @@ const ProofOfResidenceForm = () => {
                             <Form.Label>Org. Expedidor</Form.Label>
                             <Form.Control
                                 type="text"
+                                value={identityEntity}
                                 onChange={(item) => setIdentityEntity(item.target.value)}
                             />
                         </Form.Group>
@@ -122,6 +146,7 @@ const ProofOfResidenceForm = () => {
                             <Form.Label>Estado</Form.Label>
                             <Form.Control
                                 type="text"
+                                value={stateIdentity}
                                 onChange={(item) => setStateIdentity(item.target.value)}
                             />
                         </Form.Group>
@@ -134,6 +159,7 @@ const ProofOfResidenceForm = () => {
                             <Form.Label>CEP</Form.Label>
                             <Form.Control type="text"
                                 maxLength={8}
+                                value={zipcode}
                                 onChange={(item) => setZipcode(item.target.value)}
                                 onKeyDown={getZipcode} />
                         </Form.Group>
@@ -153,6 +179,7 @@ const ProofOfResidenceForm = () => {
                         <Form.Group>
                             <Form.Label>Número</Form.Label>
                             <Form.Control type="text"
+                                value={houseNumber}
                                 onChange={(item) => setHouseNumber(item.target.value)} />
                         </Form.Group>
                     </Col>
@@ -162,6 +189,7 @@ const ProofOfResidenceForm = () => {
                         <Form.Group>
                             <Form.Label>Complemento</Form.Label>
                             <Form.Control type="text"
+                                value={complement}
                                 onChange={(item) => setComplement(item.target.value)} />
                         </Form.Group>
                     </Col>
@@ -220,12 +248,15 @@ const ProofOfResidenceForm = () => {
             </Form>
 
             <Row className="d-flex justify-content-center">
-                <GeneratePdfButton onClick={() => setShow(!show)}>GERAR PDF</GeneratePdfButton>
+                <div className="d-flex justify-content-around w-25">
+                    <GeneratePdfButton onClick={() => setShow(!show)}>GERAR PDF</GeneratePdfButton>
+                    <IconButton onClick={clearDocument}><FiXCircle size={24}/></IconButton>
+                </div>
             </Row>
 
             {show ? (
                 <div>
-                    <PDFViewer>
+                    <PDFViewer className="w-100">
                         <ProofOfResidenceFileComponent data={data} />
                     </PDFViewer>
                 </div>
