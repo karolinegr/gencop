@@ -8,6 +8,7 @@ import "./App.css";
 import Home from "./pages/home";
 import ProofOfResidence from "./pages/proof-of-residence";
 import ErrorPage from "./pages/error-page";
+import ProofOfResidenceThird from "./pages/proof-of-residence-third";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "residencia",
         element: <ProofOfResidence/>
+      },
+      {
+        path: "residencia-terceiros",
+        element: <ProofOfResidenceThird/>
       }
     ]
   }

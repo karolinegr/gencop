@@ -11,7 +11,7 @@ const HeaderComponent = () => {
       <img src={logo} alt="GENCOP LOGO" />
       <ButtonArea>
         <MenuButton className="header-btn" to="/residencia">Declaração de residência</MenuButton>
-        <MenuButton className="header-btn">
+        <MenuButton className="header-btn"  to="/residencia-terceiros">
           Declaração de residência - terceiros
         </MenuButton>
         <MenuButton className="header-btn">Currículo</MenuButton>

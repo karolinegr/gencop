@@ -1,5 +1,5 @@
 import React from "react";
-import ProofOfResidenceForm from "../components/form-components/proof-of-residence-components/prof-of-residence-form";
+import ProofOfResidenceForm from "../components/form-components/proof-of-residence-components/proof-of-residence-form";
 
 const ProofOfResidence = () => {
     return (
